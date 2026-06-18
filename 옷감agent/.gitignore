@@ -1,0 +1,18 @@
+# EXE 패키징 산출물 (배포 바이너리/빌드 중간물은 저장소에 넣지 않음)
+# FabricAgent.spec 은 빌드 정의이므로 추적함(build_fabric_exe.bat 가 사용).
+FabricAgent.exe
+dist/
+build/
+
+# 런타임 로그
+logs/
+
+# 비밀값 포함 환경파일 (.env.demo 템플릿은 비밀값이 없어 추적 허용)
+backend/.env
+.env
+*.env
+!backend/.env.demo
+
+# 파이썬 캐시
+__pycache__/
+*.pyc

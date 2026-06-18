@@ -1,0 +1,54 @@
+{
+  "dataset": "four_year_supply_chain_demo",
+  "period": "2023-01-01 to 2026-12-31",
+  "total_garment_units": 6000000,
+  "shipment_batches": 162,
+  "production_batches": 486,
+  "material_receipts": 186,
+  "round_trip_demo_import_rows": 10,
+  "logistics_performance_rows": 162,
+  "severe_material_delay_rows_21d_plus": 16,
+  "late_production_rows": 11,
+  "tight_production_rows_buffer_5d_or_less": 109,
+  "year_summary": {
+    "2023": {
+      "garment_units": 1520941,
+      "shipment_batches": 40,
+      "avg_material_delay_days": 2.52,
+      "material_delay_21d_count": 0,
+      "avg_production_due_buffer_days": 25.0,
+      "tight_or_late_production_count": 0
+    },
+    "2024": {
+      "garment_units": 1504240,
+      "shipment_batches": 40,
+      "avg_material_delay_days": 3.34,
+      "material_delay_21d_count": 0,
+      "avg_production_due_buffer_days": 25.28,
+      "tight_or_late_production_count": 0
+    },
+    "2025": {
+      "garment_units": 1482220,
+      "shipment_batches": 40,
+      "avg_material_delay_days": 8.2,
+      "material_delay_21d_count": 7,
+      "avg_production_due_buffer_days": 11.3,
+      "tight_or_late_production_count": 0
+    },
+    "2026": {
+      "garment_units": 1492599,
+      "shipment_batches": 42,
+      "avg_material_delay_days": 6.96,
+      "material_delay_21d_count": 9,
+      "avg_production_due_buffer_days": 2.56,
+      "tight_or_late_production_count": 109
+    }
+  },
+  "intended_story": [
+    "2023~2024: 공급/생산 모두 정상 기준선",
+    "2025: 특정 공급사의 분기 원자재 입고가 2~3주 밀리기 시작",
+    "2026: 같은 공급사가 3~6주 지연되고 생산완료도 납기 직전/당일까지 밀림",
+    "분기 원자재 입고 특성상 21일 이상 반복 지연부터 공급사 문제 후보로 판단",
+    "올해 출고/판매 흐름은 전년도 생산 데이터의 선행 신호로 해석"
+  ]
+}

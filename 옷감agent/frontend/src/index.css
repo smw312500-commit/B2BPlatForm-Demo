@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+  background: #f0f2f5;
+  color: #222;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}

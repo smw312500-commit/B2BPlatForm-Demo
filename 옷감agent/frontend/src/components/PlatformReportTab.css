@@ -1,0 +1,130 @@
+.report-channel { display: flex; flex-direction: column; gap: 16px; }
+
+.report-channel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.report-channel-summary { font-size: 12px; color: #6b7280; margin-top: 2px; }
+
+.report-channel-counts { display: flex; align-items: center; gap: 8px; }
+
+.report-channel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 200px;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.report-msg { display: flex; flex-direction: column; max-width: 70%; }
+.report-msg.out { align-self: flex-end; align-items: flex-end; }
+.report-msg.in  { align-self: flex-start; align-items: flex-start; }
+
+.report-msg-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 3px;
+}
+.report-msg.out .report-msg-meta { flex-direction: row-reverse; }
+
+.report-msg-bubble {
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: 1px solid;
+}
+.report-msg.out .report-msg-bubble {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  border-bottom-right-radius: 2px;
+}
+.report-msg.in .report-msg-bubble {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  border-bottom-left-radius: 2px;
+}
+
+.report-msg-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.report-msg-type {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4338ca;
+}
+
+.report-msg-status {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.status-ok      { background: #d1fae5; color: #065f46; }
+.status-waiting { background: #fef3c7; color: #92400e; }
+.status-sending { background: #e0f2fe; color: #075985; }
+.status-danger  { background: #fee2e2; color: #991b1b; }
+.status-default { background: #f3f4f6; color: #374151; }
+
+.report-msg-summary { margin: 0; line-height: 1.5; color: #1f2937; }
+
+/* AI/DB 판단 보고 카드 (라벨agent 표준 — analysis_type=db_rule_based, uses_openai=false) */
+.ai-decision-card {
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+.ai-decision-card.warn   { background: #fefce8; border-color: #fde68a; }
+.ai-decision-card.danger { background: #fff1f2; border-color: #fecaca; }
+
+.ai-decision-top { display: flex; gap: 6px; margin-bottom: 4px; }
+
+.ai-decision-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.7);
+  color: #374151;
+}
+
+.ai-decision-summary { margin: 0; font-size: 12px; font-weight: 600; line-height: 1.5; color: #1f2937; }
+.ai-decision-detail  { margin: 4px 0 0; font-size: 11px; line-height: 1.5; color: #4b5563; }
+
+.report-msg-payload { margin-top: 6px; font-size: 11px; color: #6b7280; }
+.report-msg-payload summary { cursor: pointer; }
+.report-msg-payload pre {
+  margin-top: 4px;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 8px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.report-channel-recent {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
