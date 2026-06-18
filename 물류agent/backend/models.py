@@ -6,7 +6,6 @@ from database import Base
 
 class Driver(Base):
     __tablename__ = "driver"
-    __table_args__ = {"schema": "company_logistics", "mysql_charset": "utf8mb4"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False)
@@ -22,10 +21,9 @@ class Driver(Base):
 
 class Vehicle(Base):
     __tablename__ = "vehicle"
-    __table_args__ = {"schema": "company_logistics", "mysql_charset": "utf8mb4"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    driver_id = Column(Integer, ForeignKey("company_logistics.driver.id"))
+    driver_id = Column(Integer, ForeignKey("driver.id"))
     plate_no = Column(String(20), nullable=False)
     max_weight = Column(DECIMAL(8, 1))
     vehicle_type = Column(String(30))
@@ -36,11 +34,10 @@ class Vehicle(Base):
 
 class Delivery(Base):
     __tablename__ = "delivery"
-    __table_args__ = {"schema": "company_logistics", "mysql_charset": "utf8mb4"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    driver_id = Column(Integer, ForeignKey("company_logistics.driver.id"))
-    vehicle_id = Column(Integer, ForeignKey("company_logistics.vehicle.id"))
+    driver_id = Column(Integer, ForeignKey("driver.id"))
+    vehicle_id = Column(Integer, ForeignKey("vehicle.id"))
     company_id = Column(Integer)
     company_name = Column(String(100))
     origin_si = Column(String(20))
@@ -61,7 +58,6 @@ class Delivery(Base):
 
 class PlatformChannelMessage(Base):
     __tablename__ = "platform_channel_message"
-    __table_args__ = {"schema": "company_logistics", "mysql_charset": "utf8mb4"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     direction = Column(String(20), nullable=False)  # inbound / outbound

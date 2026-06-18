@@ -4,7 +4,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from sqlalchemy import text
+from sqlalchemy import inspect as sa_inspect, text
 from database import engine, Base
 from demo_mode import seed_demo_mode_if_enabled
 from routers import stock, order, release, agent, machine
@@ -14,17 +14,16 @@ Base.metadata.create_all(bind=engine)
 
 
 def _ensure_report_id_columns() -> None:
-    """Add report_id column to existing label_platform_report_* tables (no-op if already present)."""
+    """Add report_id column to existing label_platform_report_* tables (no-op if already present).
+    SQLite/MySQL 공통 — information_schema 대신 SQLAlchemy inspector 로 컬럼 존재 확인."""
+    inspector = sa_inspect(engine)
+    existing_tables = set(inspector.get_table_names())
     with engine.connect() as conn:
         for table in ("label_platform_report_event", "label_platform_report_message"):
-            exists = conn.execute(
-                text(
-                    "SELECT COUNT(*) FROM information_schema.columns "
-                    "WHERE table_schema = DATABASE() AND table_name = :table AND column_name = 'report_id'"
-                ),
-                {"table": table},
-            ).scalar()
-            if not exists:
+            if table not in existing_tables:
+                continue
+            columns = {col["name"] for col in inspector.get_columns(table)}
+            if "report_id" not in columns:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN report_id VARCHAR(50) NULL"))
                 conn.commit()
 
