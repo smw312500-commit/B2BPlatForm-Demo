@@ -1,8 +1,7 @@
 # EXE 패키징 산출물 (배포 바이너리/빌드 중간물은 저장소에 넣지 않음)
 # FabricAgent.spec 은 빌드 정의이므로 추적함(build_fabric_exe.bat 가 사용).
-FabricAgent.exe
 dist/
-build/
+/build/
 
 # 런타임 로그
 logs/
